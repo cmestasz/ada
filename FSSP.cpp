@@ -1,8 +1,24 @@
-#include "FSSP.hpp"
+#include <bits/stdc++.h>
 using namespace std;
 
 int nT, mM, P[900][70], EF[900][70], LS[900][70];
 mt19937 Rand(time(0));
+
+void load(string name);
+int makespan(vector<int> &S);
+inline int elapsed(bool reset = false);
+int RandomSearch(vector<int> &BS);
+void NEHPriority(vector<int> &Orden);
+tuple<int, vector<int>::iterator> BestInsertionPosition(vector<int> &S, int nj);
+int NEH(vector<int> &S);
+int LocalSearch(vector<int> &S, int pmk = 0);
+int ILS_B(vector<int> &S);
+int ILS_RW(vector<int> &S);
+int ILS_SA(vector<int> &S);
+int IG(vector<int> &S);
+int IGnoLS(vector<int> &S);
+typedef int (*tMetodo) (vector<int> &S);
+void Experimento(string sMetodo, tMetodo pMetodo);
 
 void load(string name)
 {
